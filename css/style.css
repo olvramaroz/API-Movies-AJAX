@@ -1,0 +1,213 @@
+/* @font-face {
+ font-family: "Great";
+ src: url("../fonts/Great-Wishes.otf");
+}
+@font-face {
+	font-family: "Chocolate";
+ 	src: url("../fonts/coolvetica.ttf");
+}
+* {
+	box-sizing: border-box;
+}
+html {
+	font-size: 62.5%;
+}
+body {
+	font-family: "Chocolate";
+	font-size: 1.5em;
+	color: white;
+	background-image: url(../white.jpg);
+	background-size: 100%;
+	background-repeat: repeat-y;
+}
+header {
+	font-family: "Great";
+	background-image: url(../background.jpeg);
+	background-size: cover;
+	background-position: center;
+	box-shadow: 0 5px 5px grey;
+}
+h1 {
+	color: gold;
+	padding: 100px;
+	font-size: 4em;
+	text-align: center;
+	margin: 0;
+}
+.intro {
+	text-align: center;
+	color: black
+}
+.Film {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+.test {
+	
+	border-radius: 10px;
+	width: 30%;
+	margin: 10px auto;
+	padding: 10px;
+	background: rgb(71,71,71);
+	background: radial-gradient(circle, rgba(71,71,71,1) 25%, rgba(0,0,0,1) 86%);
+	box-shadow: 10px 5px 5px grey;
+}
+.test h2 {
+	text-align: center;
+}
+.test img {
+	max-width: 100%;
+}
+
+footer {
+	text-align: center;
+} */
+
+/*   */
+
+/* FONTS  */
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital@1&display=swap');
+
+/* GLOBAL  */
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Lora', serif;
+}
+
+/* HEADER  */
+.header {
+    text-align: center;
+    height: 25rem;
+    padding-bottom: 5rem;
+    background-color: antiquewhite;
+}
+
+.header img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* SEARCH BAR  */
+input {
+    width: 77vw;
+    height: 1.5rem;
+    margin: 2rem auto;
+    display: block;
+    font-size: 1.2rem;
+    border-radius: 3rem;
+    padding: 0.3rem 1.5rem;
+    border: -internal-light-dark(black, white);
+}
+
+
+/* MAIN  */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.cards {
+    margin: .5rem 1rem;
+}
+
+.card {
+    width: 15rem;
+    box-shadow: 5px 5px 3px #d1d1d1;
+    text-align: center;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    position: relative;
+}
+
+.images {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 0;
+}
+
+.title, .description, .date {
+    padding: 0 1rem;
+}
+
+.title {
+    font-size: 1.5rem;
+    margin: 0;
+    text-align: center;
+}
+
+.date, .rating {
+    font-weight: bold;
+    text-transform: capitalize;
+    margin: 0;
+    padding: 0.7rem;
+}
+
+.rating {
+    font-size: 1.8rem;
+}
+
+.front, .back {
+    /* position: absolute; */
+    backface-visibility: hidden;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    transition: transform .6s linear;
+}
+
+.front {
+    background-color: antiquewhite;
+    transform: perspective(600px) rotateY(0deg);
+}
+
+.title-rating {
+    display: flex;
+    justify-content: space-between;
+    max-height: 65px;
+}
+
+.back {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: antiquewhite;
+    transform: perspective(600px) rotateY(180deg);
+}
+
+.card:hover > .front {
+    transform: perspective(600px) rotateY(-180deg);
+}
+
+.card:hover > .back {
+    transform: perspective(600px) rotateY(0deg);
+}
+
+
+/* FOOTER  */
+.footer {
+    padding: 2rem 0;
+    background-color: rgb(176, 208, 209);
+    text-align: center;
+}
+
+
+
+
+
+
