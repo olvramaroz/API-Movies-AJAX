@@ -5,6 +5,10 @@ const apiURL = baseURL + trendingWeekly + apiKey;
 const imagePoster = 'https://image.tmdb.org/t/p/w500'
 const main = document.getElementById('main');
 
+const form = document.getElementById('form');
+const search = document.getElementById('search');
+const searchURL = baseURL + '/search/movie';
+
 function getMovies() {
     $.ajax({
 		url: apiURL,
@@ -19,12 +23,11 @@ function getMovies() {
 }
 
 function showMovies(data) {
-
-
     let movie = data.results;
 
     for(let i = 0; i < movie.length; i++) {
-        $('#main').html(`
+        let movieList = '';
+        movieList += `
             <section class="cards">
                 <section class="card">
                     <section class="front">
@@ -40,13 +43,21 @@ function showMovies(data) {
                     </section>
                 </section>
             </section>
-        `)
-
-        $('#main').append(movie);
+        `
+        $('#main').append(movieList);
     }
-    
 }
 
 
-
 getMovies();
+
+form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const searchTerm = search.value;
+
+    if (searchTerm) {
+        getMovies(searchURL+'&query='+searchTerm);
+    } else {
+        getMovies();
+    }
+})
