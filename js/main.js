@@ -7,7 +7,10 @@ const main = document.getElementById('main');
 
 const form = document.getElementById('form');
 const search = document.getElementById('search');
-const searchURL = baseURL + '/search/movie';
+const searchURL = 'https://api.themoviedb.org/3/search/movie?api_key=b1e3eec6badf8d3df7fd027c7d4dd4f1&query=';
+
+const companyURL = ('https://api.themoviedb.org/3/search/company?api_key=b1e3eec6badf8d3df7fd027c7d4dd4f1');
+
 
 function getMovies() {
     $.ajax({
@@ -24,9 +27,9 @@ function getMovies() {
 
 function showMovies(data) {
     let movie = data.results;
-
+    let movieList = '';
+    
     for(let i = 0; i < movie.length; i++) {
-        let movieList = '';
         movieList += `
             <section class="cards">
                 <section class="card">
@@ -44,20 +47,22 @@ function showMovies(data) {
                 </section>
             </section>
         `
-        $('#main').append(movieList);
     }
+    $('#main').append(movieList);
 }
-
 
 getMovies();
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const searchTerm = search.value;
 
-    if (searchTerm) {
-        getMovies(searchURL+'&query='+searchTerm);
+    const searchValue = search.value;
+    console.log('je suis value', searchValue);
+
+    if(searchValue && searchValue !== '') {
+        getMovies(searchURL+searchValue);
     } else {
         getMovies();
     }
 })
+
